@@ -17,6 +17,7 @@ import org.jetbrains.annotations.NotNull;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.*;
 
 public final class ItemKeeperPlugin extends JavaPlugin {
@@ -197,10 +198,13 @@ public final class ItemKeeperPlugin extends JavaPlugin {
   }
 
   private void saveItems() {
-    this.items.forEach((key, value) -> this.itemsConfig.set(key, value));
+    var newItemsConfig = new YamlConfiguration();
+
+    this.items.forEach(newItemsConfig::set);
 
     try {
-      this.itemsConfig.save(this.itemsPath.toFile());
+      Files.createDirectories(this.itemsPath.getParent());
+      Files.writeString(this.itemsPath, newItemsConfig.saveToString(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
     } catch (final IOException e) {
       this.getLogger().severe("Failed to save items.yml: " + e.getMessage());
     }
