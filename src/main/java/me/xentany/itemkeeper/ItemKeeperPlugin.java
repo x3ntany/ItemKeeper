@@ -54,6 +54,8 @@ public final class ItemKeeperPlugin extends JavaPlugin {
         this.items.put(key, itemStack);
       }
     });
+
+    new Metrics(this, 24791);
   }
 
   @Override
