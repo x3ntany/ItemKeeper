@@ -19,3 +19,5 @@
 ##### Алиасы: ikeeper, ik
 ##### Право: itemkeeper.use
 
+## Нужна помощь?
+Обратитесь в наш Discord-канал: https://discord.com/invite/F2MKcsGXwE
