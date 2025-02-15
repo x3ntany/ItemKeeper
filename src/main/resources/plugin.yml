@@ -1,0 +1,14 @@
+name: ItemKeeper
+version: '${project.version}'
+main: me.xentany.itemkeeper.ItemKeeperPlugin
+api-version: '1.16'
+author: x3ntany
+commands:
+  itemkeeper:
+    aliases:
+      - ikeeper
+      - ik
+    permission: itemkeeper.use
+permissions:
+  itemkeeper.use:
+    default: op
